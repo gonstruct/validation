@@ -1,15 +1,16 @@
-package validation
+package validation_test
 
 import (
 	"testing"
+
+	"github.com/gonstruct/validation"
 )
 
 func TestPipe(t *testing.T) {
 	t.Run("valid string", func(t *testing.T) {
-		value := Pipe("test")
+		value := validation.Pipe("test")
 		if value != "test" {
 			t.Errorf("Expected 'test', got '%s'", value)
 		}
 	})
-
 }

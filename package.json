@@ -2,6 +2,8 @@
     "name": "@gonstruct/validation",
     "scripts": {
         "test": "go test -v ./...",
-        "test:coverage": "go test -v -cover ./..."
+        "test:coverage": "go test -v -cover ./...",
+        "lint": "golangci-lint run",
+        "lint:fix": "golangci-lint run --fix"
     }
 }

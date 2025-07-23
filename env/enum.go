@@ -1,6 +1,8 @@
 package env
 
 import (
+	"os"
+
 	"github.com/gonstruct/validation"
 )
 
@@ -11,5 +13,5 @@ type enumComparable[T any] interface {
 }
 
 func Enum[T enumComparable[T]](input string, defaultValue ...T) T {
-	return validation.Enum(input, defaultValue...)
+	return validation.Enum(os.Getenv(input), defaultValue...)
 }

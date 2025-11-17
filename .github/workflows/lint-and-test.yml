@@ -24,7 +24,7 @@ jobs:
       - name: Lint api
         uses: golangci/golangci-lint-action@v8
         with:
-          working-directory: apps/api
+          working-directory: .
           version: v2.2.1
           args: --timeout 5m
 

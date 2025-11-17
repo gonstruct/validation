@@ -5,7 +5,8 @@ import (
 	"time"
 )
 
-// A duration string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix, such as "300ms", "-1.5h" or "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
+// A time string must match the specified layout format.
+// The layout defines the format by showing how the reference time (Mon Jan 2 15:04:05 MST 2006) would be displayed.
 func Time(input, layout string, defaultValue ...time.Time) time.Time {
 	if input == "" {
 		if len(defaultValue) == 1 {

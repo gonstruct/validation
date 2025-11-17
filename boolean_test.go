@@ -19,12 +19,12 @@ func TestBoolean(t *testing.T) {
 	})
 
 	t.Run("optional", func(t *testing.T) {
-		if got := validation.Boolean("true", false); got == false {
+		if got := validation.Boolean("true", false); got != true {
 			t.Errorf("Expected true, got '%v'", got)
 		}
 
-		if got := validation.Boolean("", false); got == true {
-			t.Errorf("Expected 25s, got '%v'", got)
+		if got := validation.Boolean("", false); got != false {
+			t.Errorf("Expected false, got '%v'", got)
 		}
 	})
 }

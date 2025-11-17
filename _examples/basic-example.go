@@ -34,4 +34,5 @@ func BasicExample() {
 	// Using validation functions
 	v.Pipe(env.String("MY_ENV_VAR"), v.MinLength(1), v.MaxLength(100))
 	v.Pipe("invalid_value", v.MinLength(25), v.MaxLength(50))
+
 }

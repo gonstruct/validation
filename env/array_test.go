@@ -14,11 +14,13 @@ func TestArray(t *testing.T) {
 
 	t.Run("optional", func(t *testing.T) {
 		t.Setenv("ARRAY_VARIABLE", "value")
+
 		if got := env.Array("ARRAY_VARIABLE", []string{"default"}); got[0] != "value" {
 			t.Errorf("Expected value, got '%v'", got)
 		}
 
 		t.Setenv("ARRAY_VARIABLE", "")
+
 		if got := env.Array("ARRAY_VARIABLE", []string{"default"}); got[0] != "default" {
 			t.Errorf("Expected default, got '%v'", got)
 		}

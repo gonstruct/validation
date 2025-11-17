@@ -14,5 +14,6 @@ func Array[T string](name string, defaultValue ...[]T) []T {
 	}
 
 	value := strings.Split(strings.TrimSpace(os.Getenv(name)), ",")
+
 	return validation.Array((any)(value).([]T), defaultValue...)
 }

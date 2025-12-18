@@ -38,6 +38,7 @@ func TestTime(t *testing.T) {
 		defaultTime := time.Date(2024, 12, 25, 10, 30, 0, 0, time.UTC)
 
 		t.Setenv("TIME_VAR", "2025-12-18T15:04:05Z")
+
 		if got := env.Time("TIME_VAR", time.RFC3339, defaultTime); !got.Equal(time.Date(2025, 12, 18, 15, 4, 5, 0, time.UTC)) {
 			t.Errorf("Expected parsed time, got %v", got)
 		}

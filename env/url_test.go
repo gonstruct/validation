@@ -10,11 +10,13 @@ import (
 func TestURL(t *testing.T) {
 	t.Run("required", func(t *testing.T) {
 		t.Setenv("URL_VAR", "https://example.com")
+
 		result := env.Url("URL_VAR")
 		assert.Equal(t, "https", result.Scheme)
 		assert.Equal(t, "example.com", result.Host)
 
 		t.Setenv("URL_VAR_WITH_PATH", "https://example.com/path?query=value")
+
 		result = env.Url("URL_VAR_WITH_PATH")
 		assert.Equal(t, "/path", result.Path)
 		assert.Equal(t, "query=value", result.RawQuery)

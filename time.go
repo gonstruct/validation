@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-// A time string must match the specified layout format.
+// Time parses a time string according to the specified layout.
 // The layout defines the format by showing how the reference time (Mon Jan 2 15:04:05 MST 2006) would be displayed.
 func Time(input, layout string, defaultValue ...time.Time) time.Time {
 	if input == "" {

@@ -1,6 +1,7 @@
 package validation
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
 )
@@ -11,7 +12,7 @@ func Number(input string, defaultValue ...int) int {
 			return defaultValue[0]
 		}
 
-		panic(fmt.Errorf("empty value for number, no default provided."))
+		panic(errors.New("empty value for number, no default provided."))
 	}
 
 	value, err := strconv.Atoi(input)

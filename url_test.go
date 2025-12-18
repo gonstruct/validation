@@ -23,9 +23,9 @@ func TestURL(t *testing.T) {
 		result = validation.Url("https://subdomain.example.com:8080/path")
 		assert.Equal(t, "subdomain.example.com:8080", result.Host)
 
-		assert.PanicsWithError(t, "empty value for url, no default provided.", func() { validation.URL("") })
-		assert.PanicsWithError(t, "invalid url format: not-a-url", func() { validation.URL("not-a-url") })
-		assert.PanicsWithError(t, "invalid url format: ://missing-scheme", func() { validation.URL("://missing-scheme") })
+		assert.PanicsWithError(t, "empty value for url, no default provided.", func() { validation.Url("") })
+		assert.PanicsWithError(t, "invalid url format: not-a-url", func() { validation.Url("not-a-url") })
+		assert.PanicsWithError(t, "invalid url format: ://missing-scheme", func() { validation.Url("://missing-scheme") })
 	})
 
 	t.Run("optional", func(t *testing.T) {

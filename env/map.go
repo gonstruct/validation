@@ -7,9 +7,13 @@ import (
 	"github.com/gonstruct/validation"
 )
 
+const (
+	keyValueParts = 2
+)
+
 // Map retrieves an environment variable by name and parses it as a map of key-value pairs.
 // The environment variable is expected to be a comma-separated string of key=value pairs.
-// Example: "authorization=something,anothervalue=this"
+// Example: "authorization=something,anothervalue=this".
 func Map(name string, defaultValue ...map[string]string) map[string]string {
 	raw := strings.TrimSpace(os.Getenv(name))
 	if raw == "" {
@@ -25,8 +29,8 @@ func Map(name string, defaultValue ...map[string]string) map[string]string {
 			continue
 		}
 
-		parts := strings.SplitN(pair, "=", 2)
-		if len(parts) == 2 {
+		parts := strings.SplitN(pair, "=", keyValueParts)
+		if len(parts) == keyValueParts {
 			key := strings.TrimSpace(parts[0])
 			value := strings.TrimSpace(parts[1])
 			result[key] = value
